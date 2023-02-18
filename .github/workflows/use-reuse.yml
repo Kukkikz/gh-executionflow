@@ -69,6 +69,8 @@ jobs:
   deploy:
     needs: build
     uses: ./.github/workflows/reusable.yml # reference to full path of workflow you want to run
+    with:
+      artifact-name: dist-files
   report:
     needs: [lint, deploy] # must be execute after end of each job flows
     if: failure()
